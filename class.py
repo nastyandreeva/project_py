@@ -1,166 +1,146 @@
 class ModelParam():
-    def __init__(self, id1, uniqueid, navisworks, level, section, category, type1, name, length, square, volume, offset, offsetup, width, height):
-        self._id1 = id1
-        self._uniqueid = uniqueid
-        self._navisworks = navisworks
-        self._level = level
-        self._section = section
-        self._category = category
-        self._type1 = type1
-        self._name = name
-        self._length = length
-        self._square = square
-        self._volume = volume
-        self._offset = offset
-        self._offsetup = offsetup
-        self._width = width
-        self._height = height
-        @property
-        def id1(self):
-            print("Getter of Id is called")
-            return self._id1
+    def __init__(self):
+        self.__id = None
+        self.__unique_id = None
+        self.__navisworks = None
+        self.__level = None
+        self.__section = None
+        self.__category = None
+        self.__type = None
+        self.__name = None
+        self.__length = None
+        self.__square = None
+        self.__volume = None
+        self.__offset = None
+        self.__offset_up = None
+        self.__width = None
+        self.__height = None
 
-        @id1.setter
-        def id1(self, value):
-            print("Setter of Id is called")
-            self._id1 = int(value)
+    def getId(self):
+        return self.__id
 
-        @property
-        def uniqueid(self):
-            print("Getter of UniqueId is called")
-            return self._uniqueid
+    def setId(self, value):
+        self.__id = int(value)
 
-        @uniqueid.setter
-        def uniqueid(self, value):
-            print("Setter of UniqueId is called")
-            self._uniqueid = str(value)
+    def getUniqueId(self):
+        return self.__unique_id
 
-        @property
-        def navisworks(self):
-            print("Getter of Navisworks is called")
-            return self._navisworks
+    def setUniqueId(self, value):
+        self.__unique_id = str(value)
 
-        @navisworks.setter
-        def navisworks(self, value):
-            print("Setter of Navisworks is called")
-            self._navisworks = str(value)
+    def getNavisworks(self):
+        return self.__navisworks
 
-        @property
-        def level(self):
-            print("Getter of level is called")
-            return self._level
+    def setNavisworks(self, value):
+        if value != '':
+            self.__navisworks = str(value)
 
-        @level.setter
-        def level(self, value):
-            print("Setter of level is called")
-            self._level = str(value)
+    def getLevel(self):
+        return self.__level
 
-        @property
-        def section(self):
-            print("Getter of section is called")
-            return self._section
+    def setLevel(self, value):
+        self.__level = str(value)
 
-        @section.setter
-        def section(self, value):
-            print("Setter of section is called")
-            self._section = int(value)
+    def getSection(self):
+        return self.__section
 
-        @property
-        def category(self):
-            print("Getter of category is called")
-            return self._category
+    def setSection(self, value):
+        self.__section = int(value)
 
-        @category.setter
-        def category(self, value):
-            print("Setter of category is called")
-            self._category = str(value)
+    def getCategory(self):
+        return self.__category
 
-        @property
-        def type1(self):
-            print("Getter of type is called")
-            return self._type1
+    def setCategory(self, value):
+        self.__category = str(value)
 
-        @type1.setter
-        def type1(self, value):
-            print("Setter of type is called")
-            self._type1 = str(value)
+    def getType(self):
+        return self.__type
 
-        @property
-        def name(self):
-            print("Getter of name is called")
-            return self._name
+    def setType(self, value):
+        self.__type = str(value)
 
-        @name.setter
-        def name(self, value):
-            print("Setter of name is called")
-            self._name = str(value)
+    def getName(self):
+        return self.__name
 
-        @property
-        def width(self):
-            print("Getter of width is called")
-            return self._width
+    def setName(self, value):
+        self.__name = str(value)
 
-        @width.setter
-        def width(self, value):
-            print("Setter of width is called")
-            self._width = float(value)
+    def getWidth(self):
+            return self.__width
 
-        @property
-        def length(self):
-            print("Getter of length is called")
-            return self._length
+    def setWidth(self, value):
+        self.__width = round(float(value),2)
 
-        @length.setter
-        def length(self, value):
-            print("Setter of length is called")
-            self._length = str(value)
+    def getLength(self):
+        return self.__length
 
-        @property
-        def height(self):
-            print("Getter of height is called")
-            return self._heigth
+    def setLength(self, value):
+        self.__length = str(value)
 
-        @height.setter
-        def height(self, value):
-            print("Setter of height is called")
-            self._height = float(value)
+    def getHeight(self):
+        return self.__height
 
-        @property
-        def square(self):
-            print("Getter of square is called")
-            return self._square
+    def setHeight(self, value):
+        self.__height = round(float(value),2)
 
-        @square.setter
-        def square(self, value):
-            print("Setter of square is called")
-            self._square = str(value)
+    def getSquare(self):
+        return self.__square
 
-        @property
-        def volume(self):
-            print("Getter of volume is called")
-            return self._volume
+    def setSquare(self, value):
+        self.__square = str(value)
 
-        @volume.setter
-        def volume(self, value):
-            print("Setter of volume is called")
-            self._volume = str(value)
+    def getVolume(self):
+        return self.__volume
 
-        @property
-        def offset(self):
-            print("Getter of offset is called")
-            return self._offset
+    def setVolume(self, value):
+        self.__volume = str(value)
 
-        @offset.setter
-        def offset(self, value):
-            print("Setter of offset is called")
-            self._offset = float(value)
+    def getOffset(self):
+        return self.__offset
 
-        @property
-        def offsetup(self):
-            print("Getter of offsetup is called")
-            return self._offsetup
+    def setOffset(self, value):
+        self.__offset = round(float(value),2)
 
-        @offsetup.setter
-        def offsetup(self, value):
-            print("Setter of offsetup is called")
-            self._offsetup = float(value)
+    def getOffsetUp(self):
+        return self.__offset_up
+
+    def setOffsetUp(self, value):
+        self.__offset_up = round(float(value), 2)
+
+    def toDict(self):
+        return dict({
+            "id":self.__id,
+            "unique_id":self.__unique_id,
+            "navisworks":self.__navisworks,
+            "level":self.__level,
+            "section":self.__section,
+            "category":self.__category,
+            "type":self.__type,
+            "name":self.__name,
+            "length":self.__length,
+            "square":self.__square,
+            "volume":self.__volume,
+            "offset":self.__offset,
+            "offset_up":self.__offset_up,
+            "width":self.__width,
+            "height":self.__height
+        })
+
+    def toList(self):
+        return [
+            self.__id,
+            self.__unique_id,
+            self.__navisworks,
+            self.__level,
+            self.__section,
+            self.__category,
+            self.__type,
+            self.__name,
+            self.__length,
+            self.__square,
+            self.__volume,
+            self.__offset,
+            self.__offset_up,
+            self.__width,
+            self.__height
+        ]
