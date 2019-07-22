@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 import os
-import csv
-import pandas as pd
-import codecs
-import io
-
+import xlrd
+import json
 lst1 = []
+from class_model import *
 
 
-# Фун-ция по поиску файлов с расширением csv
-def search_dir():
-    dir_path = input("Введите абсолютный адрес: ")
+# Фун-ция по поиску файлов с расширением xls
+def search_dir(dir_path=None):
+    dir_path = dir_path if not None else input("Введите абсолютный адрес: ")
     # Проверка пути на абсолютность
     if os.path.isabs(dir_path):
         for file in os.listdir(dir_path):
@@ -21,6 +19,47 @@ def search_dir():
         print("Введённый адрес не является абсолютным!")
 
 
-search_dir()
+search_dir('C:\\Users\\anastasiya.andreeva\\Desktop\\Project')
 
-# C:\Users\andre\Desktop\Project\csv
+# C:\Users\anastasiya.andreeva\Desktop\Project
+
+filename = lst1[0]
+
+rb = xlrd.open_workbook(filename)
+sheet = rb.sheet_by_index(0)
+
+row = []
+ModelParamCollection = []
+for i in range(sheet.nrows):
+    r = sheet.row_values(i)
+    obj = ModelParam()
+    obj.setId(r[0])
+    obj.setUniqueId(r[1])
+    obj.setNavisworks(r[2])
+    obj.setLevel(r[3])
+    obj.setSection(r[4])
+    obj.setCategory(r[5])
+    obj.setType(r[6])
+    obj.setName(r[7])
+    obj.setLength(r[8])
+    obj.setSquare(r[9])
+    obj.setVolume(r[10])
+    obj.setOffset(r[11])
+    obj.setOffsetUp(r[12])
+    obj.setWidth(r[13])
+    obj.setHeight(r[14])
+    ModelParamCollection.append(obj)
+"""
+csv = []
+for i in ModelParamCollection:
+    csv.append(';'.join(list(map(lambda x: str(x), i.toList()))))
+print("\n".join(csv))
+"""
+
+n = []
+for i in ModelParamCollection:
+    n.append(i.toDict())
+#print(n)
+
+json_string = json.dumps(n, sort_keys=False, indent=2, separators=(',', ': '), ensure_ascii=False)
+print(json_string)
