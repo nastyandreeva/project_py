@@ -20,13 +20,19 @@ class ModelParam():
         return self.__id
 
     def setId(self, value):
-        self.__id = int(value)
+        if value != '':
+            self.__id = int(value)
+        else:
+            raise Exception("Id cannot be empty")
 
     def getUniqueId(self):
         return self.__unique_id
 
     def setUniqueId(self, value):
-        self.__unique_id = str(value)
+        if value != '':
+            self.__unique_id = str(value)
+        else:
+            raise Exception("UniqueId cannot be empty")
 
     def getNavisworks(self):
         return self.__navisworks
@@ -39,90 +45,102 @@ class ModelParam():
         return self.__level
 
     def setLevel(self, value):
-        self.__level = str(value)
+        if value != '':
+            self.__level = str(value)
 
     def getSection(self):
         return self.__section
 
     def setSection(self, value):
-        self.__section = int(value)
+        if value != '':
+             self.__section = int(value)
 
     def getCategory(self):
         return self.__category
 
     def setCategory(self, value):
-        self.__category = str(value)
+        if value != '':
+            self.__category = str(value)
 
     def getType(self):
         return self.__type
 
     def setType(self, value):
-        self.__type = str(value)
+        if value != '':
+            self.__type = str(value)
 
     def getName(self):
         return self.__name
 
     def setName(self, value):
-        self.__name = str(value)
+        if value != '':
+            self.__name = str(value)
 
     def getWidth(self):
-            return self.__width
+        return self.__width
 
     def setWidth(self, value):
-        self.__width = round(float(value),2)
+        if value != '':
+            self.__width = round(float(value),2)
 
     def getLength(self):
         return self.__length
 
     def setLength(self, value):
-        self.__length = str(value)
+        if value != '':
+            self.__length = str(value)
 
     def getHeight(self):
         return self.__height
 
     def setHeight(self, value):
-        self.__height = round(float(value),2)
+        if value != '':
+            self.__height = round(float(value),2)
 
     def getSquare(self):
         return self.__square
 
     def setSquare(self, value):
-        self.__square = str(value)
+        if value != '':
+            self.__square = str(value)
 
     def getVolume(self):
         return self.__volume
 
     def setVolume(self, value):
-        self.__volume = str(value)
+        if value != '':
+            self.__volume = str(value)
 
     def getOffset(self):
         return self.__offset
 
     def setOffset(self, value):
-        self.__offset = round(float(value),2)
+        if value != '':
+            self.__offset = round(float(value),2)
 
     def getOffsetUp(self):
         return self.__offset_up
 
     def setOffsetUp(self, value):
-        self.__offset_up = round(float(value), 2)
+        if value != '':
+            self.__offset_up = round(float(value), 2)
 
     def toDict(self):
         return dict({
-            "id":self.__id,
-            "unique_id":self.__unique_id,
-            "navisworks":self.__navisworks,
-            "level":self.__level,
-            "section":self.__section,
-            "category":self.__category,
-            "type":self.__type,
-            "name":self.__name,
-            "length":self.__length,
-            "square":self.__square,
-            "volume":self.__volume,
-            "offset":self.__offset,
-            "offset_up":self.__offset_up,
-            "width":self.__width,
+            "id": self.__id,
+            "unique_id": self.__unique_id,
+            "navisworks": self.__navisworks,
+            "level": self.__level,
+            "section": self.__section,
+            "category": self.__category,
+            "type": self.__type,
+            "name": self.__name,
+            "length": self.__length,
+            "square": self.__square,
+            "volume": self.__volume,
+            "offset": self.__offset,
+            "offset_up": self.__offset_up,
+            "width": self.__width,
             "height":self.__height
         })
 
