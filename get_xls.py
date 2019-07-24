@@ -8,15 +8,19 @@ from class_model import *
 
 # Фун-ция по поиску файлов с расширением xls
 def search_dir(dir_path=None):
-    dir_path = dir_path if not None else input("Введите абсолютный адрес: ")
-    # Проверка пути на абсолютность
-    if os.path.isabs(dir_path):
-        for file in os.listdir(dir_path):
-            if file.endswith(".xls"):
-                lst1.append(os.path.join(dir_path, file))
-        print(lst1)
+    # Проверка существования переданного пути
+    if os.path.exists(dir_path):
+        dir_path = dir_path if not None else input("Введите абсолютный адрес: ")
+        # Проверка пути на абсолютность
+        if os.path.isabs(dir_path):
+            for file in os.listdir(dir_path):
+                if file.endswith(".xls"):
+                    lst1.append(os.path.join(dir_path, file))
+            print(lst1)
+        else:
+            print("Введённый адрес не является абсолютным!")
     else:
-        print("Введённый адрес не является абсолютным!")
+        raise Exception("Заданный путь не существует")
 
 
 search_dir('C:\\Users\\anastasiya.andreeva\\Desktop\\Project')
@@ -63,3 +67,4 @@ for i in ModelParamCollection:
 
 json_string = json.dumps(n, sort_keys=False, indent=2, separators=(',', ': '), ensure_ascii=False)
 print(json_string)
+
